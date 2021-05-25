@@ -7,6 +7,7 @@ import random
 from math import sqrt
 from itertools import product
 import json
+from os import path as os_path
 
 ### Initialization and constants
 total_area = 68700 # ha, from the paper
@@ -14,8 +15,17 @@ init_sc_name = "Basic scenario"
 random.seed(20201029) # For repeatability of experiments
 
 ## Folder with csv files represrnting initial problem coefficients
-data_dir=r'C:\Users\babshava\Dropbox\Current works\DM with incomplet preferences\Forestry example\OneDrive_2020-12-18\Forest problem\Data'
-calc_dir = r'C:\Users\babshava\Dropbox\Current works\DM with incomplet preferences\Forestry example\OneDrive_2020-12-18\Forest problem\Calc'
+# Localizing folders depending on the user
+data_dir_b=r'C:\Users\babshava\Dropbox\Current works\DM with incomplet preferences\Forestry example\OneDrive_2020-12-18\Forest problem\Data'
+calc_dir_b=r'C:\Users\babshava\Dropbox\Current works\DM with incomplet preferences\Forestry example\OneDrive_2020-12-18\Forest problem\Calc'
+data_dir_d='/home/dp/Dropbox/Scenarios_MOO/Forest problem/Data'
+calc_dir_d='/home/dp/Dropbox/Scenarios_MOO/Forest problem/Calc'
+if os_path.isdir(data_dir_b):
+    data_dir = data_dir_b
+    calc_dir = calc_dir_b
+else:
+    data_dir = data_dir_d
+    calc_dir = calc_dir_d
 
 ## Names of criteria:
 # names to display, abbreviations to index data tables, data file names
